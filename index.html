@@ -1,0 +1,1012 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>NaukNauk 内容形态 x 玩具品类 战略交叉矩阵大盘</title>
+    <!-- Tailwind CSS -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <!-- Tailwind Custom Config for Theme -->
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        brand: {
+                            50: '#f0f7ff',
+                            100: '#e0efff',
+                            500: '#3b82f6',
+                            900: '#1e3a8a',
+                        },
+                        slate: {
+                            950: '#0b1329'
+                        }
+                    }
+                }
+            }
+        }
+    </script>
+    <!-- Lucide Icons -->
+    <script src="https://unpkg.com/lucide@latest"></script>
+</head>
+<body class="bg-gray-50 text-gray-900 font-sans leading-normal tracking-normal min-h-screen">
+
+    <!-- Top Premium Banner -->
+    <header class="bg-gradient-to-r from-slate-900 via-brand-900 to-slate-900 text-white shadow-xl border-b border-brand-500/20">
+        <div class="max-w-7xl mx-auto px-4 py-6 sm:px-6 lg:px-8 flex flex-col md:flex-row justify-between items-start md:items-center gap-4">
+            <div>
+                <span class="inline-flex items-center px-3 py-0.5 rounded-full text-xs font-semibold bg-brand-500/30 text-brand-100 border border-brand-500/30 mb-2">
+                    <i data-lucide="shield-check" class="w-3.5 h-3.5 mr-1 text-emerald-400"></i> DWS底账数据100%对齐
+                </span>
+                <h1 class="text-2xl sm:text-3xl font-extrabold tracking-tight">NaukNauk 创作者 x 内容形态战略交叉矩阵</h1>
+                <p class="mt-1 text-xs sm:text-sm text-gray-300">
+                    基于 116,053 条真实曝光帖子 与 2,025,819 次纯公域总推荐曝光。横轴：玩具品类 | 纵轴：内容子形态。
+                </p>
+            </div>
+            <!-- High Level Summary Badges -->
+            <div class="flex flex-wrap gap-3">
+                <div class="bg-white/5 border border-white/10 px-4 py-2.5 rounded-xl flex items-center gap-3">
+                    <div class="p-2 bg-brand-500/20 text-brand-400 rounded-lg">
+                        <i data-lucide="flame" class="w-5 h-5"></i>
+                    </div>
+                    <div>
+                        <div class="text-xs text-gray-400">大盘总分</div>
+                        <div class="text-sm font-bold text-white">3,187,556.5</div>
+                    </div>
+                </div>
+                <div class="bg-white/5 border border-white/10 px-4 py-2.5 rounded-xl flex items-center gap-3">
+                    <div class="p-2 bg-emerald-500/20 text-emerald-400 rounded-lg">
+                        <i data-lucide="layers" class="w-5 h-5"></i>
+                    </div>
+                    <div>
+                        <div class="text-xs text-gray-400">总分析样本</div>
+                        <div class="text-sm font-bold text-white">116,053 Posts</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </header>
+
+    <main class="max-w-7xl mx-auto px-4 py-8 sm:px-6 lg:px-8">
+        
+        <!-- Filter Bar & Tactical Views -->
+        <div class="bg-white rounded-2xl shadow-sm border border-gray-200 p-5 mb-8 flex flex-col lg:flex-row justify-between items-start lg:items-center gap-4">
+            <div class="space-y-1">
+                <h3 class="text-md font-bold text-gray-800 flex items-center gap-1.5">
+                    <i data-lucide="sliders-horizontal" class="w-4 h-4 text-brand-500"></i> 三维战术视角切换
+                </h3>
+                <p class="text-xs text-gray-500">点击切换快速高亮不同商业性质的交叉流转通道，帮助姚旭执行资源决策：</p>
+            </div>
+            <div class="flex flex-wrap gap-2">
+                <button onclick="changeView('all')" id="btn-all" class="view-btn px-4 py-2 rounded-xl text-xs font-bold transition-all bg-slate-900 text-white shadow-md">
+                    🌌 全景大盘 (All)
+                </button>
+                <button onclick="changeView('p0')" id="btn-p0" class="view-btn px-4 py-2 rounded-xl text-xs font-bold transition-all bg-white text-gray-600 border border-gray-200 hover:bg-gray-50">
+                    🚀 P0 战略重仓 (>40分)
+                </button>
+                <button onclick="changeView('redundant')" id="btn-redundant" class="view-btn px-4 py-2 rounded-xl text-xs font-bold transition-all bg-white text-gray-600 border border-gray-200 hover:bg-gray-50">
+                    📈 大盘虚胖灌水区 (限流)
+                </button>
+                <button onclick="changeView('error')" id="btn-error" class="view-btn px-4 py-2 rounded-xl text-xs font-bold transition-all bg-white text-gray-600 border border-gray-200 hover:bg-gray-50">
+                    🚨 战略误区与死水 (<15分)
+                </button>
+            </div>
+        </div>
+
+        <!-- Desktop Core Board -->
+        <div class="grid grid-cols-1 lg:grid-cols-4 gap-8">
+            
+            <!-- Left 3 Columns: Interactive Matrix -->
+            <div class="lg:col-span-3 space-y-4">
+                <div class="bg-white rounded-2xl shadow-sm border border-gray-200 overflow-hidden">
+                    <div class="p-5 border-b border-gray-100 flex justify-between items-center bg-gray-50/50">
+                        <div class="flex items-center gap-2">
+                            <span class="w-3 h-3 rounded-full bg-brand-500 animate-pulse"></span>
+                            <h2 class="text-sm font-extrabold uppercase tracking-wider text-gray-500">
+                                玩具品类 x 内容子形态 效能热力图 (Hover/Click 激活探针)
+                            </h2>
+                        </div>
+                        <div class="flex items-center gap-4 text-[10px] text-gray-400">
+                            <span class="flex items-center gap-1"><span class="w-2.5 h-2.5 bg-brand-900 rounded-sm"></span> 效率 > 40</span>
+                            <span class="flex items-center gap-1"><span class="w-2.5 h-2.5 bg-brand-500 rounded-sm"></span> 效率 25-40</span>
+                            <span class="flex items-center gap-1"><span class="w-2.5 h-2.5 bg-gray-300 rounded-sm"></span> 效率 < 20</span>
+                        </div>
+                    </div>
+                    
+                    <!-- Table Grid Wrapper (Enable horizontal scroll on mobile) -->
+                    <div class="overflow-x-auto">
+                        <table class="w-full border-collapse text-left min-w-[800px]">
+                            <thead>
+                                <tr class="bg-gray-50/50 text-gray-500 border-b border-gray-200">
+                                    <th class="p-4 text-xs font-bold text-gray-400 uppercase w-32 border-r border-gray-100">
+                                        内容形态 \ 品类
+                                    </th>
+                                    <!-- Columns Headers (Toy Categories) -->
+                                    <th class="p-4 text-center border-r border-gray-100" style="width: 15%;">
+                                        <div class="text-xs font-extrabold text-gray-800">可动兵人</div>
+                                        <div class="text-[9px] text-gray-400 uppercase font-mono">Action Figures</div>
+                                    </th>
+                                    <th class="p-4 text-center border-r border-gray-100" style="width: 15%;">
+                                        <div class="text-xs font-extrabold text-gray-800">毛绒玩具</div>
+                                        <div class="text-[9px] text-gray-400 uppercase font-mono">Plush Toys</div>
+                                    </th>
+                                    <th class="p-4 text-center border-r border-gray-100" style="width: 15%;">
+                                        <div class="text-xs font-extrabold text-gray-800">手办/雕像</div>
+                                        <div class="text-[9px] text-gray-400 uppercase font-mono">Statues & Busts</div>
+                                    </th>
+                                    <th class="p-4 text-center border-r border-gray-100" style="width: 15%;">
+                                        <div class="text-xs font-extrabold text-gray-800">玩偶娃娃</div>
+                                        <div class="text-[9px] text-gray-400 uppercase font-mono">Dolls</div>
+                                    </th>
+                                    <th class="p-4 text-center border-r border-gray-100" style="width: 15%;">
+                                        <div class="text-xs font-extrabold text-gray-800">场景沙盘</div>
+                                        <div class="text-[9px] text-gray-400 uppercase font-mono">Diorama</div>
+                                    </th>
+                                    <th class="p-4 text-center" style="width: 15%;">
+                                        <div class="text-xs font-extrabold text-gray-800">潮流盲盒</div>
+                                        <div class="text-[9px] text-gray-400 uppercase font-mono">Designer Toys</div>
+                                    </th>
+                                </tr>
+                            </thead>
+                            <tbody id="matrix-body" class="divide-y divide-gray-100">
+                                <!-- Generated Dynamically by JS to guarantee precision -->
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+                
+                <!-- Footnotes for Consulting Standards -->
+                <div class="flex justify-between items-center text-[11px] text-gray-400 px-2">
+                    <span>* 单元格百分比分别表示：内容生产占比（占全站公域大盘%） / 曝光占比（占全站公域大盘%）</span>
+                    <span class="flex items-center gap-1 font-semibold text-brand-500 cursor-pointer hover:underline" onclick="printDoc()">
+                        <i data-lucide="printer" class="w-3.5 h-3.5"></i> 导出为高清战略简报/打印
+                    </span>
+                </div>
+            </div>
+            
+            <!-- Right Column: Floating Strategic Inspector Panel (Fixed or Scroll) -->
+            <div class="lg:col-span-1">
+                <div class="bg-white rounded-2xl shadow-sm border border-gray-200 p-6 sticky top-8 space-y-6" id="inspector-card">
+                    <div class="border-b border-gray-100 pb-4">
+                        <div class="text-xs font-bold text-brand-500 uppercase font-mono tracking-wider mb-1">
+                            NaukNauk 运营决策探针
+                        </div>
+                        <h2 class="text-lg font-black text-gray-900" id="insp-title">鼠标停留在单元格上</h2>
+                        <p class="text-xs text-gray-500 mt-1" id="insp-subtitle">实时剖析微观业务战术方向</p>
+                    </div>
+
+                    <!-- Metrics Badges Inside Inspector -->
+                    <div class="grid grid-cols-2 gap-3" id="insp-metrics-box">
+                        <div class="bg-gray-50 border border-gray-100 p-3 rounded-xl">
+                            <span class="text-[10px] text-gray-400 font-bold block mb-1">分发效率 (平均分)</span>
+                            <span class="text-2xl font-black text-gray-800 font-mono" id="insp-score">-</span>
+                        </div>
+                        <div class="bg-gray-50 border border-gray-100 p-3 rounded-xl flex flex-col justify-between">
+                            <div>
+                                <span class="text-[10px] text-gray-400 font-bold block">生产占比</span>
+                                <span class="text-sm font-bold text-gray-700 font-mono" id="insp-prod">-</span>
+                            </div>
+                            <div class="mt-2 pt-2 border-t border-gray-200/50">
+                                <span class="text-[10px] text-gray-400 font-bold block">曝光占比</span>
+                                <span class="text-sm font-bold text-gray-700 font-mono" id="insp-exp">-</span>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Strategic Tag Tier -->
+                    <div class="bg-brand-50 border border-brand-100/50 rounded-xl p-4 flex items-center justify-between" id="insp-tier-box">
+                        <div>
+                            <span class="text-[10px] text-brand-400 font-bold block uppercase tracking-wider">运营决策层级</span>
+                            <span class="text-sm font-extrabold text-brand-900" id="insp-tier-name">待探测...</span>
+                        </div>
+                        <div class="w-10 h-10 rounded-lg bg-brand-500/10 text-brand-600 flex items-center justify-center font-black" id="insp-tier-icon">
+                            ?
+                        </div>
+                    </div>
+
+                    <!-- Tactical Diagnosis Details -->
+                    <div class="space-y-4">
+                        <div class="bg-emerald-50/40 border border-emerald-100/50 rounded-xl p-4 space-y-1.5" id="insp-judgment-box">
+                            <h4 class="text-xs font-bold text-emerald-800 flex items-center gap-1.5">
+                                <i data-lucide="eye" class="w-4 h-4"></i> 价值判断 (Strategic Diagnosis)
+                            </h4>
+                            <p class="text-xs text-emerald-950 leading-relaxed font-medium" id="insp-judgment">
+                                悬停或点击左侧矩阵中的任意交叉单元格，查看该品类形态组合的运营调性、用户心理诉求及大盘流失定性。
+                            </p>
+                        </div>
+                        <div class="bg-indigo-50/40 border border-indigo-100/50 rounded-xl p-4 space-y-1.5" id="insp-action-box">
+                            <h4 class="text-xs font-bold text-indigo-800 flex items-center gap-1.5">
+                                <i data-lucide="corner-down-right" class="w-4 h-4"></i> 下一步动作 (Immediate Action)
+                            </h4>
+                            <p class="text-xs text-indigo-950 leading-relaxed font-medium" id="insp-action">
+                                提取该格对应的下一步刚性整改动作、产品化改造入口及运营干预红线。
+                            </p>
+                        </div>
+                    </div>
+
+                    <!-- Highlight Meta -->
+                    <div class="text-[10px] text-gray-400 border-t border-gray-100 pt-4 flex items-center justify-between">
+                        <span>决策制定：NaukNauk 增长项目组</span>
+                        <span>版本：v1.0 (2026-05)</span>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+
+    </main>
+
+    <!-- Detailed Javascript Logic -->
+    <script>
+        // Data Store containing the precise metrics, value judgments, and actions from your CSV
+        const matrixData = {
+            'story_line': {
+                'displayName': '故事线 (story_line)',
+                'Action Figures': {
+                    'prod': '11.34%',
+                    'exp': '16.39%',
+                    'score': 41.35,
+                    'status': 'p0',
+                    'tier': 'P0 级核心主战场 / 护城河',
+                    'judgment': '👑 全站唯一“量效双绝”定海神针。吃掉了大盘16%以上的绝对曝光，分发效率依然突破41分。手办的可动性、世界观、多角色同人脑洞天生具备统治力。',
+                    'action': '提炼其爆款剧本语料库，作为下一步产品“What-if 剧情脑洞工具”和“角色故事生成器”的底层核心规则骨架。'
+                },
+                'Plush Toys': {
+                    'prod': '5.91%',
+                    'exp': '8.98%',
+                    'score': 39.55,
+                    'status': 'p0',
+                    'tier': 'P0 级核心情绪重仓',
+                    'judgment': '⭐ 社畜精神树洞 / 规模化陪伴。供给规模极大，吃满近9%的公域曝光，效率逼近40分。用户深度依赖毛绒玩偶的拟人化解压和温暖代入。',
+                    'action': '锁定治愈、陪伴与工位树洞母题。严禁套用复杂战斗剧情逻辑，纯粹做强 Nauk 社区温馨的日常陪伴心智基本面。'
+                },
+                'Statues & Busts': {
+                    'prod': '3.42%',
+                    'exp': '6.01%',
+                    'score': 49.43,
+                    'status': 'p0',
+                    'tier': 'P0 级极客审美高地',
+                    'judgment': '⚡ 跨作品重工业剧场。手办雕像硬核用户不再满足于冷冰冰静态展示，正在自发用顶级雕像细节编排高阶对决微短剧。',
+                    'action': '建立官方“精品典藏故事剧场”合集，给足高精内容公域曝光倾斜，建立平台审美的高级感壁垒。'
+                },
+                'Dolls': {
+                    'prod': '1.68%',
+                    'exp': '2.65%',
+                    'score': 43.85,
+                    'status': 'p0',
+                    'tier': 'P0 级高黏性养成剧场',
+                    'judgment': '💖 拟人化深度私域养成。娃娃圈层壁垒极高且死忠，用户在“带娃娃旅行日常Vlog”下的评论和代入极强，养成感无法自拔。',
+                    'action': '上线“带娃闯世界”等长效故事话题，给予定向曝光扶持，重点盘活这批高核心死忠的圈层分享力。'
+                },
+                'Diorama': {
+                    'prod': '3.42%',
+                    'exp': '2.22%',
+                    'score': 38.85,
+                    'status': 'p0',
+                    'tier': 'P0 级宏观沙盘叙事',
+                    'judgment': '🏰 场景叙事大师车道。不仅是摆玩具，而是在构建宏观战场世界观，叙事张力与环境细节拉满，互动率极佳。',
+                    'action': '人肉抽检该车道高分作品，提炼“场景定格、战役脑洞”等故事公式。运营定向从外站招募重度沙盘师入驻。'
+                },
+                'Designer Toys': {
+                    'prod': '0.22%',
+                    'exp': '0.38%',
+                    'score': 43.45,
+                    'status': 'p0',
+                    'tier': 'P0 级都市独立短剧',
+                    'judgment': '🎨 潮流治愈小世界。潮流盲盒IP（如Labubu）自带傲娇、戏谑的人设，二创出的都市情感小故事非常吸引年轻用户。',
+                    'action': '将这批剧情小故事作为 showcase 标杆，用作后续向商业潮流厂牌对接置换、吸引跨界极客的底气筹码。'
+                }
+            },
+            'story_stitch': {
+                'displayName': '故事拼接 (story_stitch)',
+                'Action Figures': {
+                    'prod': '1.92%',
+                    'exp': '2.06%',
+                    'score': 32.95,
+                    'status': 'p0',
+                    'tier': 'P0 级核心创意拼接',
+                    'judgment': '⚡ 拼接剪辑中高潜形态。多画面组合拼接出的动作故事流畅度极佳，在大盘上跑出了高互动红利。',
+                    'action': '这个多clips片段组装基础功能极其优秀。下一步应该将其底层编辑能力迁移至 `clip` 大类中，去抢救平庸的混剪。'
+                },
+                'Plush Toys': {
+                    'prod': '0.51%',
+                    'exp': '0.45%',
+                    'score': 25.64,
+                    'status': 'p1',
+                    'tier': 'P1 级日常趣味故事',
+                    'judgment': '🧸 拟人化片段组装。多个小玩偶在不同桌面场景的转场组合，满足基本的陪伴氛围消费。',
+                    'action': '维持现状，将其归属于日常陪伴系列，交由算法在冷启动池做正常推荐召回。'
+                },
+                'Statues & Busts': {
+                    'prod': '0.77%',
+                    'exp': '0.91%',
+                    'score': 36.73,
+                    'status': 'p0',
+                    'tier': 'P0 级高细节收藏拼接',
+                    'judgment': '🔬 高精细度巡礼。用户用拼接卡片展示多款高端收藏的多视角侧写，满足极客收藏控的视觉震撼。',
+                    'action': '引导其利用拼接功能向雕像故事线转型，重点向【微距巡航雕像馆】模版倾斜。'
+                },
+                'Dolls': {
+                    'prod': '0.29%',
+                    'exp': '0.37%',
+                    'score': 40.63,
+                    'status': 'p0',
+                    'tier': 'P0 级精致娃娃拼接',
+                    'judgment': '👗 玩偶拼接小剧场。多套服装拼接和变装过程，展示娃娃的高颜值，视觉效果拉满，效率突破40分。',
+                    'action': '重点扶持这批老作者，产品侧将这些高分拼接路径沉淀为娃娃专属的“变装画廊模版”。'
+                },
+                'Diorama': {
+                    'prod': '1.04%',
+                    'exp': '1.07%',
+                    'score': 32.96,
+                    'status': 'p0',
+                    'tier': 'P0 级沙盘拼接进化',
+                    'judgment': '🏰 场景从零搭建拼接。记录一个复杂的微型沙盘世界一步步被搭建、塞满的过程，解压感与期待感十足。',
+                    'action': '作为高效率种子方向，产品侧正式上线【微缩场景从零到满快放】模版，直接推向前台。'
+                },
+                'Designer Toys': {
+                    'prod': '0.06%',
+                    'exp': '0.05%',
+                    'score': 26.88,
+                    'status': 'p1',
+                    'tier': 'P1 级潮流拼接开箱',
+                    'judgment': '🎨 潮玩拼接展示。多款限定盲盒站在一起的多卡片拼接展示，满足潮流炫耀心理。',
+                    'action': '不做特殊算法扶持，作为潮流日常心智的随动消费，交由算法池自净化。'
+                }
+            },
+            'template_gallery': {
+                'displayName': '画廊模板 (template_gallery)',
+                'Action Figures': {
+                    'prod': '2.98%',
+                    'exp': '2.88%',
+                    'score': 26.89,
+                    'status': 'p1',
+                    'tier': 'P1 级动作模板降门槛',
+                    'judgment': '⚪ 兵人动作降门槛基础。虽然受庞大小白玩家涌入导致效率被稀释，但维持了供给及格线。',
+                    'action': '将 `story_line` 里精选出的 41 分爆款动作脑洞（如连招打斗），产品化固化成一键卡点定格格斗模板，赋能普通人。'
+                },
+                'Plush Toys': {
+                    'prod': '2.03%',
+                    'exp': '2.22%',
+                    'score': 26.83,
+                    'status': 'p1',
+                    'tier': 'P1 级规模洗白转化器',
+                    'judgment': '⭐ 陪伴与软萌降门槛神器。用画廊格式包装玩偶日常。普通人发几张上班、坐班玩偶图，就能做成高赞树洞视频。',
+                    'action': '产品全力强推【工位打卡树洞】模版。**利用这个模板去收割、洗白那上万条20分以下的低效混剪，强制升级长尾供给。**'
+                },
+                'Statues & Busts': {
+                    'prod': '0.86%',
+                    'exp': '1.42%',
+                    'score': 42.56,
+                    'status': 'p0',
+                    'tier': 'P0 级极客视觉巡航',
+                    'judgment': '⚡ 极客细节大杀器。套用预设画廊模版，手办用户可以不费吹灰之力做出高级的慢动作平移视觉，效率直逼故事线。',
+                    'action': '上线【微距巡航雕像馆】模版，通过固定慢动作平移和变焦算法，放大头雕和地台质感。'
+                },
+                'Dolls': {
+                    'prod': '0.52%',
+                    'exp': '1.05%',
+                    'score': 53.24,
+                    'status': 'p0',
+                    'tier': 'P0 级全站降门槛效率巅峰',
+                    'judgment': '🏆 **白金级爆款发动机。** 玩偶娃娃用户套用换装和OOTD模板后，单帖爆发效率狂冲至 53 分！证明美学娃娃最适合模板化。',
+                    'action': '本周产品研发第一优先级：上线时尚杂志风、变装OOTD画廊模板，对 Dolls 创作者执行一键定向推送。'
+                },
+                'Diorama': {
+                    'prod': '0.39%',
+                    'exp': '0.58%',
+                    'score': 43.47,
+                    'status': 'p0',
+                    'tier': 'P0 级微缩场景高确定车道',
+                    'judgment': '🏰 精致沙盘展示。普通人没有讲宏大史诗故事的脑洞，但套用场景模板一键展示自己的沙盘藏品，同样具备高格调和高互动。',
+                    'action': '研发上线专属沙盘的快放与对比模板，做大高黏性收藏类内容的基本盘。'
+                },
+                'Designer Toys': {
+                    'prod': '0.07%',
+                    'exp': '0.13%',
+                    'score': 49.70,
+                    'status': 'p0',
+                    'tier': 'P0 级盲盒悬念转换器',
+                    'judgment': '🎨 潮流开箱首选。潮玩艺术画廊和盲盒一键炫耀模板非常对年轻玩家的胃口，效率高达49分。',
+                    'action': '固化【盲盒拆箱悬念卡点】模板（撕盒、露袋、开箱高潮三点定格），产品化推向前台。'
+                }
+            },
+            'music_video': {
+                'displayName': '音乐视频 (music_video)',
+                'Action Figures': {
+                    'prod': '0.29%',
+                    'exp': '0.18%',
+                    'score': 20.75,
+                    'status': 'error',
+                    'tier': 'P2 级边缘冷清区',
+                    'judgment': '⏳ 纯粹的认知错配。兵人极客要看的是动作对抗与剧情逻辑，而不是玩具配上吵闹的二创音乐。供给和互动极度萎缩。',
+                    'action': '暂时从优先主线撤退。不给任何运营和活动流量加权，让其在公域自生自灭。'
+                },
+                'Plush Toys': {
+                    'prod': '0.12%',
+                    'exp': '0.10%',
+                    'score': 27.79,
+                    'status': 'p1',
+                    'tier': 'P1 级氛围随动消费',
+                    'judgment': '🧸 软萌温馨配乐小短片。小玩偶配合LoFi温馨配乐，体验尚可，但无法大规模复制。',
+                    'action': '仅作为边缘观察形态，抽检其Bug机制，不做全大盘流量扶持。'
+                },
+                'Statues & Busts': {
+                    'prod': '0.11%',
+                    'exp': '0.07%',
+                    'score': 22.74,
+                    'status': 'error',
+                    'tier': 'P2 级边缘观察车道',
+                    'judgment': '⏳ 极客根本不玩这个。雕像受众要看静态雕刻神态，动感配乐完全对不上胃口。',
+                    'action': '不予理睬。不消耗任何产品升级和运营扶持精力。'
+                },
+                'Dolls': {
+                    'prod': '0.06%',
+                    'exp': '0.15%',
+                    'score': 68.11,
+                    'status': 'p0',
+                    'tier': 'P0 级超级隐藏黑马 / 美学巅峰',
+                    'judgment': '🚀 **全站分发效率绝对顶点！** 虽然极度稀缺，但娃娃亲妈圈子非常擅长给精致的人偶配上卡点神曲，每一秒都是美学暴击，互动率全盘第一。',
+                    'action': '捞出这74位创作者列为“官方首席体验官”，1对1绑定，给予音乐和特种扶持车道，将其塑造为 Nauk 的格调招牌。'
+                },
+                'Diorama': {
+                    'prod': '0.11%',
+                    'exp': '0.08%',
+                    'score': 26.25,
+                    'status': 'p1',
+                    'tier': 'P1 级沙盘边缘试验',
+                    'judgment': '🏰 场景视频背景乐。纯粹的试验，几乎无创作者使用。',
+                    'action': '忽略，维持自然老化和检索衰减。'
+                },
+                'Designer Toys': {
+                    'prod': '0.01%',
+                    'exp': '0.01%',
+                    'score': 28.27,
+                    'status': 'p1',
+                    'tier': 'P1 级潮玩氛围二创',
+                    'judgment': '🎨 潮流波普配乐卡点，节奏感好，但供给几近于零，未跑出任何群众心智。',
+                    'action': '暂时冷冻。不作为主战场投入核心运营。'
+                }
+            },
+            'clip_std': {
+                'displayName': '标准混剪 (clip_std)',
+                'Action Figures': {
+                    'prod': '12.81%',
+                    'exp': '10.34%',
+                    'score': 22.89,
+                    'status': 'redundant',
+                    'tier': '📈 大盘重度虚胖失血平原 (亟需限流)',
+                    'judgment': '📉 **全平台最大的流量消耗内耗点！** 极其臃肿的12.8%大盘供给，吃掉了近10.4%的绝对推荐曝光，但单条均分却死死被卡在22分的及格线。用户产生了极度明显的审美疲劳。',
+                    'action': '**刚性清产能踩刹车！** 算法侧给予该组合冷启动曝光 0.65 衰减降权，将无效曝光释放给高效的 `story_line` 车道。'
+                },
+                'Plush Toys': {
+                    'prod': '10.74%',
+                    'exp': '8.27%',
+                    'score': 19.55,
+                    'status': 'redundant',
+                    'tier': '📈 大盘重度虚胖失血平原 (亟需限流)',
+                    'judgment': '📉 **极其臃肿的长尾灌水车道。** 贡献了上万条无剧情的纯玩具图片堆叠混剪，卷走全平台 8.27% 的宝贵曝光，但留存和互动极其惨烈，全站吸血。',
+                    'action': '**刚性限流踩刹车！** 算法冷启动池刚性拦截，强制引导这批创作者转用【工位打卡树洞】官方白金画廊模板，洗白长尾流量。'
+                },
+                'Statues & Busts': {
+                    'prod': '5.71%',
+                    'exp': '4.96%',
+                    'score': 24.35,
+                    'status': 'redundant',
+                    'tier': 'P1 级常规均质大盘',
+                    'judgment': '⚪ 混剪大类的均质化红海平原。无功无过，供给量较大但效率平庸，用户消费意愿已触达上限。',
+                    'action': '不做特殊资源倾斜，任其自然生长，算法侧由 seen-post 自适应老化清退。'
+                },
+                'Dolls': {
+                    'prod': '3.03%',
+                    'exp': '2.98%',
+                    'score': 28.52,
+                    'status': 'p1',
+                    'tier': 'P1 级玩偶基础视频盘',
+                    'judgment': '⚪ 娃娃的日常视频堆砌。创作者审美不错，使得分数略高于大盘混剪平均分。',
+                    'action': '维持现状，不作为核心主线投入运营，引导创作者套用画廊模板。'
+                },
+                'Diorama': {
+                    'prod': '4.25%',
+                    'exp': '3.33%',
+                    'score': 23.80,
+                    'status': 'redundant',
+                    'tier': 'P1 级场景基础展示',
+                    'judgment': '⚪ 场景沙盘混剪。大量的静态转场和细节混拍，效率一般。',
+                    'action': '通过算法对 Seen 召回过滤，保证公域水体不发生沙盘混剪霸榜。'
+                },
+                'Designer Toys': {
+                    'prod': '0.38%',
+                    'exp': '0.41%',
+                    'score': 28.14,
+                    'status': 'p1',
+                    'tier': 'P1 级潮流混剪平原',
+                    'judgment': '🎨 潮玩的专柜、展会混拍。格调可以，但无法形成剧情和世界观共鸣，效率平滑。',
+                    'action': '仅作为日常潮流氛围的调性背景。'
+                }
+            },
+            'clip_cinematic': {
+                'displayName': '电影感混剪 (clip_cinematic)',
+                'Action Figures': {
+                    'prod': '4.60%',
+                    'exp': '3.69%',
+                    'score': 22.95,
+                    'status': 'p1',
+                    'tier': 'P1 级高格调混剪',
+                    'judgment': '⚪ 看起来很高大上，但效率同样受制于混剪大类的均质化红海瓶颈。兵人打斗配上电影滤镜，未能跑出效率黑马。',
+                    'action': '不做特殊策略加权，作为日常推荐流的高格调背景点缀。'
+                },
+                'Plush Toys': {
+                    'prod': '2.29%',
+                    'exp': '1.69%',
+                    'score': 19.12,
+                    'status': 'redundant',
+                    'tier': 'P1 级毛绒视频平原',
+                    'judgment': '⚪ 无甚特色。毛绒玩偶配上暖黄滤镜，用户产生严重的视觉疲劳，效率低于及格线。',
+                    'action': '算法侧不予流量倾斜，释放冷启动流量给高效车道。'
+                },
+                'Statues & Busts': {
+                    'prod': '1.56%',
+                    'exp': '1.55%',
+                    'score': 26.97,
+                    'status': 'p1',
+                    'tier': 'P1 级雕像视觉大片',
+                    'judgment': '🟡 精致的偏电影感侧写。在雕像和手办类目下，由于手办本身的重工业材质纹理质感强，电影感显得十分协调。',
+                    'action': '不做任何特殊控流，维持正常公域生态，引导他们套用【微距巡航雕像馆】模版。'
+                },
+                'Dolls': {
+                    'prod': '0.56%',
+                    'exp': '0.41%',
+                    'score': 20.28,
+                    'status': 'redundant',
+                    'tier': 'P1 级精致传统娃娃混剪',
+                    'judgment': '⚪ 常规的娃娃展示，效率一般，用户停留时间被静态展示限制。',
+                    'action': '不予干预，引导老作者向精致拼接或变装故事线转移。'
+                },
+                'Diorama': {
+                    'prod': '1.49%',
+                    'exp': '1.20%',
+                    'score': 24.66,
+                    'status': 'p1',
+                    'tier': 'P1 级精致沙盘混拍',
+                    'judgment': '🏰 电影感微缩景观。沙盘玩家拍摄的微缩战争片，视觉可以但缺乏核心高潮。',
+                    'action': '维持现状，交由算法在 ready pool 自净化。'
+                },
+                'Designer Toys': {
+                    'prod': '0.09%',
+                    'exp': '0.13%',
+                    'score': 36.70,
+                    'status': 'p0',
+                    'tier': 'P0 级潮流高能侧写',
+                    'judgment': '🎨 潮流限定版的电影感高级微距展示。虽然量小（仅101条），但潮玩艺术的调性在电影光影下极度吸引年轻Icon。',
+                    'action': '作为官方限定款推广的御用 showcase，产品侧可以适当固化为电影滤镜卡点工作流。'
+                }
+            },
+            'clip_frame_flow': {
+                'displayName': '定格流 (clip_frame_flow)',
+                'Action Figures': {
+                    'prod': '3.11%',
+                    'exp': '2.55%',
+                    'score': 22.65,
+                    'status': 'redundant',
+                    'tier': 'P1 级兵人日常打卡车道',
+                    'judgment': '⚪ 手办玩家日常晒桌面和摆Pose的定格打卡流。对圈子维持基本的桌面晒物日常活跃度有作用。',
+                    'action': '不做任何特殊干预和流量倾斜，由 seen 过滤实现自老化。'
+                },
+                'Plush Toys': {
+                    'prod': '0.66%',
+                    'exp': '0.37%',
+                    'score': 14.45,
+                    'status': 'error',
+                    'tier': '🚨 灌水偷懒槽 (必须限流清除)',
+                    'judgment': '📉 **全站形态认知毒瘤。** 毛绒玩具本身没有可动关节，用户拿几张静态毛绒玩偶图做成极其低成本的定格帧流应付日更打卡。用户消费秒滑。',
+                    'action': '**刚性拉闸限流！** 推荐池对 Plush 的定格流执行 0.4 降权，清除其公域霸榜，引导这批灌水党套用【树洞陪伴】模板。'
+                },
+                'Statues & Busts': {
+                    'prod': '0.53%',
+                    'exp': '0.39%',
+                    'score': 21.34,
+                    'status': 'redundant',
+                    'tier': 'P1 级手办定格打卡',
+                    'judgment': '⚪ 硬核用户桌面手办开箱打卡，画质一般，效率平庸。',
+                    'action': '不予运营扶持，让其自然老化。'
+                },
+                'Dolls': {
+                    'prod': '0.27%',
+                    'exp': '0.22%',
+                    'score': 24.40,
+                    'status': 'p1',
+                    'tier': 'P1 级娃娃摆拍打卡',
+                    'judgment': '⚪ 娃娃日常出行摆拍卡片流。对娃妈圈子发帖活跃有用。',
+                    'action': '维持正常大盘水位，交由推荐系统自然召回。'
+                },
+                'Diorama': {
+                    'prod': '0.92%',
+                    'exp': '0.72%',
+                    'score': 22.62,
+                    'status': 'p1',
+                    'tier': 'P1 级沙盘定格摆拍',
+                    'judgment': '⚪ 场景一角的高清摆拍打卡。对圈子垂直活跃有用。',
+                    'action': '不干预。'
+                },
+                'Designer Toys': {
+                    'prod': '0.04%',
+                    'exp': '0.03%',
+                    'score': 19.28,
+                    'status': 'error',
+                    'tier': 'P2 级低效潮玩打卡',
+                    'judgment': '❌ 盲盒静态图拼接。用户觉得太敷衍不点赞。',
+                    'action': '算法限流清退。'
+                }
+            },
+            'clip_action': {
+                'displayName': '动作剪辑 (clip_action)',
+                'Action Figures': {
+                    'prod': '0.003%',
+                    'exp': '0.001%',
+                    'score': 16.75,
+                    'status': 'error',
+                    'tier': 'P2 级极客长尾死水',
+                    'judgment': '❌ 样本极低且效率奇差。兵人玩家自发的低效拼接打斗，未形成圈层心智，纯属垃圾流量。',
+                    'action': '立刻清退。不给予任何产品研发支持。'
+                },
+                'Plush Toys': {
+                    'prod': '0%',
+                    'exp': '0%',
+                    'score': 0,
+                    'status': 'error',
+                    'tier': '空项 (N/A)',
+                    'judgment': '❌ 现网无该形态供给（毛绒玩具做不出动作打斗剪辑）。',
+                    'action': '不予投入任何战略精力。'
+                },
+                'Statues & Busts': {
+                    'prod': '0.002%',
+                    'exp': '0.0002%',
+                    'score': 3.00,
+                    'status': 'error',
+                    'tier': 'P2 级极客长尾死水',
+                    'judgment': '❌ 仅2条内容，效率跌至3分。属于玩家随便上传的杂质内容。',
+                    'action': '清退过滤。'
+                },
+                'Dolls': {
+                    'prod': '0%',
+                    'exp': '0%',
+                    'score': 0,
+                    'status': 'error',
+                    'tier': '空项 (N/A)',
+                    'judgment': '❌ 现网无该形态供给。',
+                    'action': '忽略。'
+                },
+                'Diorama': {
+                    'prod': '0.001%',
+                    'exp': '0%',
+                    'score': 1.00,
+                    'status': 'error',
+                    'tier': 'P2 级极客长尾死水',
+                    'judgment': '❌ 垃圾死水内容。',
+                    'action': '清退过滤。'
+                },
+                'Designer Toys': {
+                    'prod': '0.002%',
+                    'exp': '0%',
+                    'score': 13.50,
+                    'status': 'error',
+                    'tier': 'P2 级极客长尾死水',
+                    'judgment': '❌ 长尾死水垃圾。',
+                    'action': '过滤清退。'
+                }
+            },
+            'story_comic': {
+                'displayName': '传统条漫 (story_comic)',
+                'Action Figures': {
+                    'prod': '3.05%',
+                    'exp': '0.91%',
+                    'score': 7.72,
+                    'status': 'error',
+                    'tier': '🚨 兵人传统条漫深渊 (核心战略误区)',
+                    'judgment': '🚨 **全站最大的认知颠覆点！** 极其臃肿的3%供给大池，单条平均分竟然只有可怜的 7.72 分（全站垫底）。静态展示在兵人类目下由于缺乏对抗快节奏，沦为死水。',
+                    'action': '**产品立刻停止优化！** 停止对兵人传统静态条漫编辑工具的升级，**全面强驱老作者向 `story_line`（故事线）转型。**'
+                },
+                'Plush Toys': {
+                    'prod': '2.18%',
+                    'exp': '1.27%',
+                    'score': 13.80,
+                    'status': 'error',
+                    'tier': '🚨 传统静态条漫深渊',
+                    'judgment': '❌ 效率跌破15分底线。静态条漫由于缺乏情绪渲染和配乐拟人代入，沦为垃圾。',
+                    'action': '**产品停止优化！** 引导 Plush 的条漫作者向白金级【工位树洞画廊】模板转型。'
+                },
+                'Statues & Busts': {
+                    'prod': '0.57%',
+                    'exp': '0.23%',
+                    'score': 10.21,
+                    'status': 'error',
+                    'tier': '🚨 传统静态条漫深渊',
+                    'judgment': '❌ 低效深渊，用户对冷冰冰手办配静态文字完全不感兴趣，滑走率极高。',
+                    'action': '停止工具优化，清退该车道。'
+                },
+                'Dolls': {
+                    'prod': '0.32%',
+                    'exp': '0.11%',
+                    'score': 8.57,
+                    'status': 'error',
+                    'tier': '🚨 传统静态条漫深渊',
+                    'judgment': '❌ 静态玩偶拼图配气泡文字，没有养成陪伴的节奏，用户拒不买单（均分仅8分）。',
+                    'action': '停止任何研发和运营升级投入。'
+                },
+                'Diorama': {
+                    'prod': '0.47%',
+                    'exp': '0.11%',
+                    'score': 6.49,
+                    'status': 'error',
+                    'tier': '🚨 传统静态条漫深渊',
+                    'judgment': '❌ 效率全盘最低点（仅6.49分）。沙盘的静态小连环画根本没有可看性。',
+                    'action': '刚性策略限流，停止一切工具优化。'
+                },
+                'Designer Toys': {
+                    'prod': '0.06%',
+                    'exp': '0.06%',
+                    'score': 20.92,
+                    'status': 'error',
+                    'tier': 'P2 级低效潮玩条漫',
+                    'judgment': '❌ 潮玩的静态四格漫画，表现极差。',
+                    'action': '限流清退。'
+                }
+            }
+        };
+
+        const categories = ['Action Figures', 'Plush Toys', 'Statues & Busts', 'Dolls', 'Diorama', 'Designer Toys'];
+        const modes = ['story_line', 'story_stitch', 'template_gallery', 'music_video', 'clip_std', 'clip_cinematic', 'clip_frame_flow', 'clip_action', 'story_comic'];
+
+        // Function to build the matrix beautifully
+        function renderMatrix() {
+            const tbody = document.getElementById('matrix-body');
+            tbody.innerHTML = '';
+
+            modes.forEach(mode => {
+                const tr = document.createElement('tr');
+                tr.className = "hover:bg-gray-50/50 transition-colors border-b border-gray-100";
+                
+                // Mode header cell
+                let modeDisp = matrixData[mode].displayName;
+                let modeLabelHtml = `
+                    <td class="p-4 border-r border-gray-100 bg-gray-50/30 sticky left-0 z-10 shadow-[2px_0_5px_rgba(0,0,0,0.02)]">
+                        <span class="text-xs font-extrabold text-gray-800 block leading-tight">${modeDisp.split(' ')[0]}</span>
+                        <span class="text-[9px] text-gray-400 font-mono block mt-0.5">${modeDisp.split(' ')[1]}</span>
+                    </td>
+                `;
+                tr.innerHTML = modeLabelHtml;
+
+                // Category cells loop
+                categories.forEach(cat => {
+                    const cellData = matrixData[mode][cat];
+                    const td = document.createElement('td');
+                    td.className = "p-3 border-r border-gray-100 text-center transition-all cursor-pointer relative cell-node";
+                    
+                    // Set custom attributes for target-finding
+                    td.setAttribute('data-mode', mode);
+                    td.setAttribute('data-cat', cat);
+
+                    if (cellData && cellData.score > 0) {
+                        const score = cellData.score;
+                        const prod = cellData.prod;
+                        const exp = cellData.exp;
+
+                        // Decide background color based on efficiency score (consulting grade heat scaling)
+                        let bgClass = "bg-gray-100 text-gray-800";
+                        let borderClass = "border-transparent";
+                        
+                        if (score >= 40) {
+                            bgClass = "bg-blue-900 text-white hover:bg-blue-950"; // P0 high performance
+                        } else if (score >= 26) {
+                            bgClass = "bg-blue-500/85 text-white hover:bg-blue-600"; // P1 high efficiency
+                        } else if (score >= 18) {
+                            bgClass = "bg-blue-100/80 text-blue-900 hover:bg-blue-200/90"; // Basic / Red sea
+                        } else {
+                            bgClass = "bg-red-50 text-red-900 border border-red-200 hover:bg-red-100/70"; // Low performance
+                        }
+
+                        // Add specific strategic symbols
+                        let statusSymbol = "";
+                        if (cellData.status === 'p0') {
+                            statusSymbol = `<span class="absolute top-1.5 right-1.5 text-[8px] px-1 py-0.2 rounded-md bg-emerald-500 text-white font-extrabold">P0</span>`;
+                        } else if (cellData.status === 'redundant') {
+                            statusSymbol = `<span class="absolute top-1.5 right-1.5 text-[8px] px-1 py-0.2 rounded-md bg-amber-500 text-white font-extrabold">🚨</span>`;
+                        } else if (score < 15) {
+                            statusSymbol = `<span class="absolute top-1.5 right-1.5 text-[8px] px-1 py-0.2 rounded-md bg-rose-600 text-white font-extrabold">CUT</span>`;
+                        }
+
+                        td.className += ` ${bgClass} ${borderClass}`;
+                        td.innerHTML = `
+                            ${statusSymbol}
+                            <div class="text-xs font-black font-mono tracking-tight">${score.toFixed(2)}</div>
+                            <div class="grid grid-cols-2 gap-1 text-[8px] font-medium mt-1.5 pt-1.5 border-t border-white/25/gray-200 opacity-90 leading-tight">
+                                <div>产:${prod}</div>
+                                <div>曝:${exp}</div>
+                            </div>
+                        `;
+
+                        // Interactive events
+                        td.addEventListener('mouseenter', () => updateInspector(mode, cat));
+                        td.addEventListener('click', () => updateInspector(mode, cat, true));
+
+                    } else {
+                        // Empty/N/A cells
+                        td.className += " bg-gray-50/20 text-gray-300";
+                        td.innerHTML = `
+                            <div class="text-xs font-mono">-</div>
+                            <div class="text-[8px] text-gray-300 mt-1">N/A</div>
+                        `;
+                    }
+                    tr.appendChild(td);
+                });
+                tbody.appendChild(tr);
+            });
+            lucide.createIcons();
+        }
+
+        // Action Inspector Update
+        function updateInspector(mode, cat, isClicked = false) {
+            const cell = matrixData[mode][cat];
+            if (!cell) return;
+
+            // Titles
+            const title = document.getElementById('insp-title');
+            const subtitle = document.getElementById('insp-subtitle');
+            title.textContent = `${cat} × ${mode}`;
+            subtitle.textContent = `运营战略诊断结果`;
+
+            // Score with dynamic color indicator
+            const scoreEl = document.getElementById('insp-score');
+            scoreEl.textContent = cell.score.toFixed(2);
+            if (cell.score >= 40) {
+                scoreEl.className = "text-2xl font-black text-blue-800 font-mono";
+            } else if (cell.score >= 26) {
+                scoreEl.className = "text-2xl font-black text-sky-600 font-mono";
+            } else if (cell.score >= 18) {
+                scoreEl.className = "text-2xl font-black text-amber-600 font-mono";
+            } else {
+                scoreEl.className = "text-2xl font-black text-rose-600 font-mono";
+            }
+
+            // Pct Badges
+            document.getElementById('insp-prod').textContent = cell.prod;
+            document.getElementById('insp-exp').textContent = cell.exp;
+
+            // Value judgments and Actions
+            document.getElementById('insp-judgment').textContent = cell.judgment;
+            document.getElementById('insp-action').textContent = cell.action;
+
+            // Strategic Tier Box styling
+            const tierName = document.getElementById('insp-tier-name');
+            const tierIcon = document.getElementById('insp-tier-icon');
+            const tierBox = document.getElementById('insp-tier-box');
+            tierName.textContent = cell.tier;
+
+            if (cell.status === 'p0') {
+                tierBox.className = "bg-emerald-50 border border-emerald-100 rounded-xl p-4 flex items-center justify-between";
+                tierName.className = "text-sm font-extrabold text-emerald-900";
+                tierIcon.className = "w-10 h-10 rounded-lg bg-emerald-500 text-white flex items-center justify-center font-black";
+                tierIcon.innerHTML = "P0";
+            } else if (cell.status === 'redundant') {
+                tierBox.className = "bg-amber-50 border border-amber-100 rounded-xl p-4 flex items-center justify-between";
+                tierName.className = "text-sm font-extrabold text-amber-900";
+                tierIcon.className = "w-10 h-10 rounded-lg bg-amber-500 text-white flex items-center justify-center font-black";
+                tierIcon.innerHTML = "🚨";
+            } else if (cell.score < 15) {
+                tierBox.className = "bg-red-50 border border-red-100 rounded-xl p-4 flex items-center justify-between";
+                tierName.className = "text-sm font-extrabold text-red-900";
+                tierIcon.className = "w-10 h-10 rounded-lg bg-red-600 text-white flex items-center justify-center font-black";
+                tierIcon.innerHTML = "CUT";
+            } else {
+                tierBox.className = "bg-brand-50 border border-brand-100 rounded-xl p-4 flex items-center justify-between";
+                tierName.className = "text-sm font-extrabold text-brand-900";
+                tierIcon.className = "w-10 h-10 rounded-lg bg-brand-500/10 text-brand-600 flex items-center justify-center font-black";
+                tierIcon.innerHTML = "P1";
+            }
+
+            if (isClicked) {
+                // Highlight the inspector card with a quick animation
+                const card = document.getElementById('inspector-card');
+                card.classList.add('ring-2', 'ring-brand-500', 'scale-[1.01]');
+                setTimeout(() => {
+                    card.classList.remove('ring-2', 'ring-brand-500', 'scale-[1.01]');
+                }, 300);
+            }
+        }
+
+        // View filter logic to help Yao Xu see different strategic areas
+        function changeView(viewType) {
+            // Reset active button styles
+            document.querySelectorAll('.view-btn').forEach(btn => {
+                btn.className = "view-btn px-4 py-2 rounded-xl text-xs font-bold transition-all bg-white text-gray-600 border border-gray-200 hover:bg-gray-50";
+            });
+            // Set active style
+            document.getElementById(`btn-${viewType}`).className = "view-btn px-4 py-2 rounded-xl text-xs font-bold transition-all bg-slate-900 text-white shadow-md";
+
+            const cells = document.querySelectorAll('.cell-node');
+            cells.forEach(cell => {
+                const mode = cell.getAttribute('data-mode');
+                const cat = cell.getAttribute('data-cat');
+                const data = matrixData[mode][cat];
+
+                if (!data) return;
+
+                // Reset default opacity
+                cell.classList.remove('opacity-15', 'scale-95', 'ring-2', 'ring-brand-500', 'z-20');
+
+                if (viewType === 'p0') {
+                    if (data.status !== 'p0') {
+                        cell.classList.add('opacity-15');
+                    } else {
+                        cell.classList.add('ring-2', 'ring-emerald-500', 'z-10');
+                    }
+                } else if (viewType === 'redundant') {
+                    if (data.status !== 'redundant') {
+                        cell.classList.add('opacity-15');
+                    } else {
+                        cell.classList.add('ring-2', 'ring-amber-500', 'z-10');
+                    }
+                } else if (viewType === 'error') {
+                    if (data.score >= 15) {
+                        cell.classList.add('opacity-15');
+                    } else {
+                        cell.classList.add('ring-2', 'ring-rose-500', 'z-10');
+                    }
+                }
+            });
+        }
+
+        // Self-init trigger
+        window.onload = function() {
+            renderMatrix();
+            // Default select the定海神针
+            updateInspector('story_line', 'Action Figures');
+        };
+
+        // Standard consulting printable helper
+        function printDoc() {
+            window.print();
+        }
+    </script>
+
+    <!-- Custom CSS styles nested to keep it single-file-compliant -->
+    <style>
+        @media print {
+            header, .bg-white.rounded-2xl.shadow-sm.border.border-gray-200.p-5, .text-\[11px\].text-gray-400 {
+                display: none !important;
+            }
+            body {
+                background-color: white !important;
+                color: black !important;
+            }
+            main {
+                max-width: 100% !important;
+                padding: 0 !important;
+            }
+            .grid {
+                display: block !important;
+            }
+            .lg\:col-span-3 {
+                width: 100% !important;
+                page-break-after: always;
+            }
+            .lg\:col-span-1 {
+                width: 100% !important;
+                margin-top: 2rem;
+            }
+            .sticky {
+                position: relative !important;
+                top: 0 !important;
+            }
+        }
+        .cell-node {
+            transition: all 0.25s cubic-bezier(0.4, 0, 0.2, 1);
+        }
+        .opacity-15 {
+            opacity: 0.12 !important;
+            filter: grayscale(80%);
+        }
+    </style>
+</body>
+</html>
