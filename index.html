@@ -6,7 +6,6 @@
     <title>NaukNauk 内容形态 x 玩具品类 战略交叉矩阵大盘</title>
     <!-- Tailwind CSS -->
     <script src="https://cdn.tailwindcss.com"></script>
-    <!-- Tailwind Custom Config for Theme -->
     <script>
         tailwind.config = {
             theme: {
@@ -75,7 +74,7 @@
                 <h3 class="text-md font-bold text-gray-800 flex items-center gap-1.5">
                     <i data-lucide="sliders-horizontal" class="w-4 h-4 text-brand-500"></i> 三维战术视角切换
                 </h3>
-                <p class="text-xs text-gray-500">点击切换快速高亮不同商业性质的交叉流转通道，帮助姚旭执行资源决策：</p>
+                <p class="text-xs text-gray-500">点击切换快速高亮不同商业性质的交叉流转通道，帮助我们进行资源决策与机制迭代：</p>
             </div>
             <div class="flex flex-wrap gap-2">
                 <button onclick="changeView('all')" id="btn-all" class="view-btn px-4 py-2 rounded-xl text-xs font-bold transition-all bg-slate-900 text-white shadow-md">
@@ -164,7 +163,7 @@
                 </div>
             </div>
             
-            <!-- Right Column: Floating Strategic Inspector Panel (Fixed or Scroll) -->
+            <!-- Right Column: Floating Strategic Inspector Panel -->
             <div class="lg:col-span-1">
                 <div class="bg-white rounded-2xl shadow-sm border border-gray-200 p-6 sticky top-8 space-y-6" id="inspector-card">
                     <div class="border-b border-gray-100 pb-4">
@@ -238,7 +237,6 @@
 
     <!-- Detailed Javascript Logic -->
     <script>
-        // Data Store containing the precise metrics, value judgments, and actions from your CSV
         const matrixData = {
             'story_line': {
                 'displayName': '故事线 (story_line)',
@@ -266,7 +264,7 @@
                     'score': 49.43,
                     'status': 'p0',
                     'tier': 'P0 级极客审美高地',
-                    'judgment': '⚡ 跨作品重工业剧场。手办雕像硬核用户不再满足于冷冰冰静态展示，正在自发用顶级雕像细节编排高阶对决微短剧。',
+                    'judgment': '⚡ 跨作品重工业剧场。手办雕像硬核用户不再满足于静态展示，正在自发用顶级雕像细节编排高阶对决微短剧。',
                     'action': '建立官方“精品典藏故事剧场”合集，给足高精内容公域曝光倾斜，建立平台审美的高级感壁垒。'
                 },
                 'Dolls': {
@@ -398,7 +396,7 @@
                     'score': 43.47,
                     'status': 'p0',
                     'tier': 'P0 级微缩场景高确定车道',
-                    'judgment': '🏰 精致沙盘展示。普通人没有讲宏大史诗故事的脑洞，但套用场景模板一键展示自己的沙盘藏品，同样具备高格调和高互动。',
+                    'judgment': '🏰 精致沙盘展示。普通人没有讲宏大史诗故事的脑洞，构建场景模板一键展示自己的沙盘藏品，同样具备高格调和高互动。',
                     'action': '研发上线专属沙盘的快放与对比模板，做大高黏性收藏类内容的基本盘。'
                 },
                 'Designer Toys': {
@@ -494,7 +492,7 @@
                     'score': 24.35,
                     'status': 'redundant',
                     'tier': 'P1 级常规均质大盘',
-                    'judgment': '⚪ 混剪大类的均质化红海平原。无功无过，供给量较大但效率平庸，用户消费意愿已触达上限。',
+                    'judgment': '⚪ 混剪大类的均质化红海平原。无功无过，供给量较大习惯。',
                     'action': '不做特殊资源倾斜，任其自然生长，算法侧由 seen-post 自适应老化清退。'
                 },
                 'Dolls': {
@@ -616,7 +614,7 @@
                     'exp': '0.22%',
                     'score': 24.40,
                     'status': 'p1',
-                    'tier': 'P1 级娃娃摆拍打卡',
+                    'tier': 'P1 级娃娃摆摆打卡',
                     'judgment': '⚪ 娃娃日常出行摆拍卡片流。对娃妈圈子发帖活跃有用。',
                     'action': '维持正常大盘水位，交由推荐系统自然召回。'
                 },
@@ -656,7 +654,7 @@
                     'score': 0,
                     'status': 'error',
                     'tier': '空项 (N/A)',
-                    'judgment': '❌ 现网无该形态供给（毛绒玩具做不出动作打斗剪辑）。',
+                    'judgment': '❌ 现网无该形态供给。',
                     'action': '不予投入任何战略精力。'
                 },
                 'Statues & Busts': {
@@ -704,7 +702,7 @@
                     'score': 7.72,
                     'status': 'error',
                     'tier': '🚨 兵人传统条漫深渊 (核心战略误区)',
-                    'judgment': '🚨 **全站最大的认知颠覆点！** 极其臃肿的3%供给大池，单条平均分竟然只有可怜的 7.72 分（全站垫底）。静态展示在兵人类目下由于缺乏对抗快节奏，沦为死水。',
+                    'judgment': '🚨 **全站最大的认知颠覆点！** 极其臃肿的3%供给大池，单条平均分竟然只有可怜的 7.72 分（全站底端）。静态展示在兵人类目下由于缺乏对抗快节奏，沦为死水。',
                     'action': '**产品立刻停止优化！** 停止对兵人传统静态条漫编辑工具的升级，**全面强驱老作者向 `story_line`（故事线）转型。**'
                 },
                 'Plush Toys': {
@@ -758,7 +756,6 @@
         const categories = ['Action Figures', 'Plush Toys', 'Statues & Busts', 'Dolls', 'Diorama', 'Designer Toys'];
         const modes = ['story_line', 'story_stitch', 'template_gallery', 'music_video', 'clip_std', 'clip_cinematic', 'clip_frame_flow', 'clip_action', 'story_comic'];
 
-        // Function to build the matrix beautifully
         function renderMatrix() {
             const tbody = document.getElementById('matrix-body');
             tbody.innerHTML = '';
@@ -767,7 +764,6 @@
                 const tr = document.createElement('tr');
                 tr.className = "hover:bg-gray-50/50 transition-colors border-b border-gray-100";
                 
-                // Mode header cell
                 let modeDisp = matrixData[mode].displayName;
                 let modeLabelHtml = `
                     <td class="p-4 border-r border-gray-100 bg-gray-50/30 sticky left-0 z-10 shadow-[2px_0_5px_rgba(0,0,0,0.02)]">
@@ -777,13 +773,11 @@
                 `;
                 tr.innerHTML = modeLabelHtml;
 
-                // Category cells loop
                 categories.forEach(cat => {
                     const cellData = matrixData[mode][cat];
                     const td = document.createElement('td');
                     td.className = "p-3 border-r border-gray-100 text-center transition-all cursor-pointer relative cell-node";
                     
-                    // Set custom attributes for target-finding
                     td.setAttribute('data-mode', mode);
                     td.setAttribute('data-cat', cat);
 
@@ -792,21 +786,19 @@
                         const prod = cellData.prod;
                         const exp = cellData.exp;
 
-                        // Decide background color based on efficiency score (consulting grade heat scaling)
                         let bgClass = "bg-gray-100 text-gray-800";
                         let borderClass = "border-transparent";
                         
                         if (score >= 40) {
-                            bgClass = "bg-blue-900 text-white hover:bg-blue-950"; // P0 high performance
+                            bgClass = "bg-blue-900 text-white hover:bg-blue-950";
                         } else if (score >= 26) {
-                            bgClass = "bg-blue-500/85 text-white hover:bg-blue-600"; // P1 high efficiency
+                            bgClass = "bg-blue-500/85 text-white hover:bg-blue-600";
                         } else if (score >= 18) {
-                            bgClass = "bg-blue-100/80 text-blue-900 hover:bg-blue-200/90"; // Basic / Red sea
+                            bgClass = "bg-blue-100/80 text-blue-900 hover:bg-blue-200/90";
                         } else {
-                            bgClass = "bg-red-50 text-red-900 border border-red-200 hover:bg-red-100/70"; // Low performance
+                            bgClass = "bg-red-50 text-red-900 border border-red-200 hover:bg-red-100/70";
                         }
 
-                        // Add specific strategic symbols
                         let statusSymbol = "";
                         if (cellData.status === 'p0') {
                             statusSymbol = `<span class="absolute top-1.5 right-1.5 text-[8px] px-1 py-0.2 rounded-md bg-emerald-500 text-white font-extrabold">P0</span>`;
@@ -820,18 +812,16 @@
                         td.innerHTML = `
                             ${statusSymbol}
                             <div class="text-xs font-black font-mono tracking-tight">${score.toFixed(2)}</div>
-                            <div class="grid grid-cols-2 gap-1 text-[8px] font-medium mt-1.5 pt-1.5 border-t border-white/25/gray-200 opacity-90 leading-tight">
+                            <div class="grid grid-cols-2 gap-1 text-[8px] font-medium mt-1.5 pt-1.5 border-t border-white/25 opacity-90 leading-tight">
                                 <div>产:${prod}</div>
                                 <div>曝:${exp}</div>
                             </div>
                         `;
 
-                        // Interactive events
                         td.addEventListener('mouseenter', () => updateInspector(mode, cat));
                         td.addEventListener('click', () => updateInspector(mode, cat, true));
 
                     } else {
-                        // Empty/N/A cells
                         td.className += " bg-gray-50/20 text-gray-300";
                         td.innerHTML = `
                             <div class="text-xs font-mono">-</div>
@@ -845,18 +835,15 @@
             lucide.createIcons();
         }
 
-        // Action Inspector Update
         function updateInspector(mode, cat, isClicked = false) {
             const cell = matrixData[mode][cat];
             if (!cell) return;
 
-            // Titles
             const title = document.getElementById('insp-title');
             const subtitle = document.getElementById('insp-subtitle');
             title.textContent = `${cat} × ${mode}`;
             subtitle.textContent = `运营战略诊断结果`;
 
-            // Score with dynamic color indicator
             const scoreEl = document.getElementById('insp-score');
             scoreEl.textContent = cell.score.toFixed(2);
             if (cell.score >= 40) {
@@ -869,15 +856,12 @@
                 scoreEl.className = "text-2xl font-black text-rose-600 font-mono";
             }
 
-            // Pct Badges
             document.getElementById('insp-prod').textContent = cell.prod;
             document.getElementById('insp-exp').textContent = cell.exp;
 
-            // Value judgments and Actions
             document.getElementById('insp-judgment').textContent = cell.judgment;
             document.getElementById('insp-action').textContent = cell.action;
 
-            // Strategic Tier Box styling
             const tierName = document.getElementById('insp-tier-name');
             const tierIcon = document.getElementById('insp-tier-icon');
             const tierBox = document.getElementById('insp-tier-box');
@@ -906,7 +890,6 @@
             }
 
             if (isClicked) {
-                // Highlight the inspector card with a quick animation
                 const card = document.getElementById('inspector-card');
                 card.classList.add('ring-2', 'ring-brand-500', 'scale-[1.01]');
                 setTimeout(() => {
@@ -915,13 +898,10 @@
             }
         }
 
-        // View filter logic to help Yao Xu see different strategic areas
         function changeView(viewType) {
-            // Reset active button styles
             document.querySelectorAll('.view-btn').forEach(btn => {
                 btn.className = "view-btn px-4 py-2 rounded-xl text-xs font-bold transition-all bg-white text-gray-600 border border-gray-200 hover:bg-gray-50";
             });
-            // Set active style
             document.getElementById(`btn-${viewType}`).className = "view-btn px-4 py-2 rounded-xl text-xs font-bold transition-all bg-slate-900 text-white shadow-md";
 
             const cells = document.querySelectorAll('.cell-node');
@@ -932,7 +912,6 @@
 
                 if (!data) return;
 
-                // Reset default opacity
                 cell.classList.remove('opacity-15', 'scale-95', 'ring-2', 'ring-brand-500', 'z-20');
 
                 if (viewType === 'p0') {
@@ -957,20 +936,16 @@
             });
         }
 
-        // Self-init trigger
         window.onload = function() {
             renderMatrix();
-            // Default select the定海神针
             updateInspector('story_line', 'Action Figures');
         };
 
-        // Standard consulting printable helper
         function printDoc() {
             window.print();
         }
     </script>
 
-    <!-- Custom CSS styles nested to keep it single-file-compliant -->
     <style>
         @media print {
             header, .bg-white.rounded-2xl.shadow-sm.border.border-gray-200.p-5, .text-\[11px\].text-gray-400 {
